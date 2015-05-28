@@ -12,12 +12,28 @@ public class PlayerController : MonoBehaviour {
 	public Vector3 pos;
 	private float timeRemaining = 5f;
 	bool keysOn = true;
+
+
+
+
+	//
+
+	public GameObject shot;
+	public Transform shotSpawn;
+	public float fireRate;
+	private float nextFire;
+	private bool keyPressed;
+
+	//
+
 	
 	void Start () {
 		Respawn ();
 	}
 
 	void Update () {
+		GetComponent<Rigidbody> ().freezeRotation = true;
+
 		if (timeRemaining > -1) {
 			//Debug.Log ("Time left: " + timeRemaining);
 			timeRemaining -= Time.deltaTime;
@@ -30,13 +46,38 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate () {
 		if (keysOn == true) {
+
+
 			float moveHorizontal = Input.GetAxis ("Horizontal");
 			float moveVertical = Input.GetAxis ("Vertical");
-		
+			
 			Vector3 movement = new Vector3 (moveHorizontal, moveVertical);
 			GetComponent<Rigidbody> ().AddForce (movement * speed * Time.deltaTime);
-		}
 
+
+			/*
+			Rigidbody rigidbody = GetComponent<Rigidbody> ();
+
+			
+			Vector3 movement = new Vector3(moveHorizontal,moveVertical,0.0f);
+			
+			rigidbody.velocity = movement * speed;
+			*/
+		}
+		if (Input.GetKeyDown ("space"))
+		{
+			keyPressed = true;
+		}
+		else if(Input.GetKeyUp ("space"))
+		{
+			keyPressed = false;
+		}
+		
+		if(keyPressed && Time.time > nextFire) 
+		{
+			nextFire = Time.time + fireRate;
+			Instantiate (shot, shotSpawn.position, shotSpawn.rotation);
+		}
 	}
 
 
@@ -50,6 +91,7 @@ public class PlayerController : MonoBehaviour {
 
 	void OnCollisionEnter(Collision col)
 	{
+
 		if (col.gameObject.name == "Terrain") {
 			Respawn ();
 		}
@@ -62,13 +104,19 @@ public class PlayerController : MonoBehaviour {
 		if (col.gameObject.name == "RightCollider") {
 			Respawn();
 		}
-
-
+		if (col.gameObject.tag == "Enemy")
+		{
+			Respawn();
+		}
+		if (col.gameObject.tag == "Bullet")
+		{
+			Respawn();
+		}
 	}
-
 	void OnCollisionStay(Collision col)
 	{
-		if (col.gameObject.name == "PlayerBase") {
+		if (col.gameObject.name == "PlayerBase")
+		{
 			timeRemaining = 5f;
 		}
 	}

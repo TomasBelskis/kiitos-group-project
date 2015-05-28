@@ -9,6 +9,9 @@ public class Shoot : MonoBehaviour {
 	public float spawnWait;
 	public float waveWait;
 
+
+	public int z;
+
 	void Start()
 	{
 		StartCoroutine (SpawnWaves ());
@@ -19,7 +22,8 @@ public class Shoot : MonoBehaviour {
 		{
 			for (int i=0;i<BulletCount;i++) {
 
-				Quaternion spawnRotation = Quaternion.Euler(Random.Range(-50,0),Random.Range(-30,30), 0);
+				//Quaternion spawnRotation = Quaternion.Euler(Random.Range(-50,0),Random.Range(-30,30), 0);
+				Quaternion spawnRotation = Quaternion.Euler(180,180,z);
 
 				Instantiate (shot,pos.position,spawnRotation);
 				yield return new WaitForSeconds(spawnWait);
