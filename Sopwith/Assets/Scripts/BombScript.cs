@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 
 public class BombScript : MonoBehaviour {
 	
@@ -9,9 +9,11 @@ public class BombScript : MonoBehaviour {
 	public Vector3 pos;
 	public Quaternion identity;
 	public int bombAmount;
+	public Text bombText;
+
 	// Use this for initialization
 	void Start () {
-		
+		setBombText ();
 	}
 	
 	// Update is called once per frame
@@ -23,7 +25,7 @@ public class BombScript : MonoBehaviour {
 				//Bomb.transform.position = Player.transform.position + pos;
 				Instantiate (Bomb, Player.transform.position + pos, identity);
 				bombAmount--;
-				
+				setBombText();
 			}
 			
 		}
@@ -33,7 +35,13 @@ public class BombScript : MonoBehaviour {
 	{
 		if (Bomb.gameObject.name == "PlayerBase") {
 			bombAmount = 5;
+			setBombText();
 		}
+	}
+
+	void setBombText()
+	{
+		bombText.text = "Bombs: " + bombAmount;
 	}
 }
 

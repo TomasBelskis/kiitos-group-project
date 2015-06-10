@@ -1,0 +1,133 @@
+fileFormatVersion: 2
+guid: 9c993a7487de29140bd5d3ab31eb47c2
+timeCreated: 1433406320
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Spowith_f1_camel
+    100004: Spowith_f1_camel_cauda
+    100006: Spowith_f1_camel_D1
+    100008: Spowith_f1_camel_D2
+    100010: Spowith_f1_camel_E1
+    100012: Spowith_f1_camel_E2
+    100014: Spowith_f1_camel_helix
+    100016: Spowith_f1_camel_leme
+    100018: Spowith_f1_camel_Roda
+    100020: Spowith_f1_camel_Roda_
+    100022: Spowith_f1_camel_vidro
+    400000: //RootNode
+    400002: Spowith_f1_camel
+    400004: Spowith_f1_camel_cauda
+    400006: Spowith_f1_camel_D1
+    400008: Spowith_f1_camel_D2
+    400010: Spowith_f1_camel_E1
+    400012: Spowith_f1_camel_E2
+    400014: Spowith_f1_camel_helix
+    400016: Spowith_f1_camel_leme
+    400018: Spowith_f1_camel_Roda
+    400020: Spowith_f1_camel_Roda_
+    400022: Spowith_f1_camel_vidro
+    2300000: Spowith_f1_camel
+    2300002: Spowith_f1_camel_cauda
+    2300004: Spowith_f1_camel_D1
+    2300006: Spowith_f1_camel_D2
+    2300008: Spowith_f1_camel_E1
+    2300010: Spowith_f1_camel_E2
+    2300012: Spowith_f1_camel_helix
+    2300014: Spowith_f1_camel_leme
+    2300016: Spowith_f1_camel_Roda
+    2300018: Spowith_f1_camel_Roda_
+    2300020: Spowith_f1_camel_vidro
+    3300000: Spowith_f1_camel
+    3300002: Spowith_f1_camel_cauda
+    3300004: Spowith_f1_camel_D1
+    3300006: Spowith_f1_camel_D2
+    3300008: Spowith_f1_camel_E1
+    3300010: Spowith_f1_camel_E2
+    3300012: Spowith_f1_camel_helix
+    3300014: Spowith_f1_camel_leme
+    3300016: Spowith_f1_camel_Roda
+    3300018: Spowith_f1_camel_Roda_
+    3300020: Spowith_f1_camel_vidro
+    4300000: Spowith_f1_camel
+    4300002: Spowith_f1_camel_cauda
+    4300004: Spowith_f1_camel_D1
+    4300006: Spowith_f1_camel_D2
+    4300008: Spowith_f1_camel_E1
+    4300010: Spowith_f1_camel_E2
+    4300012: Spowith_f1_camel_helix
+    4300014: Spowith_f1_camel_leme
+    4300016: Spowith_f1_camel_Roda
+    4300018: Spowith_f1_camel_Roda_
+    4300020: Spowith_f1_camel_vidro
+    6400000: Spowith_f1_camel
+    6400002: Spowith_f1_camel_cauda
+    6400004: Spowith_f1_camel_D1
+    6400006: Spowith_f1_camel_D2
+    6400008: Spowith_f1_camel_E1
+    6400010: Spowith_f1_camel_E2
+    6400012: Spowith_f1_camel_helix
+    6400014: Spowith_f1_camel_leme
+    6400016: Spowith_f1_camel_Roda
+    6400018: Spowith_f1_camel_Roda_
+    6400020: Spowith_f1_camel_vidro
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 1
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 public class PlayerController : MonoBehaviour {
 
@@ -10,7 +11,9 @@ public class PlayerController : MonoBehaviour {
 	public GameObject Player;
 	public GameObject PlayerBase;
 	public Vector3 pos;
-	private float timeRemaining = 5f;
+	private float timeRemaining = 60f;
+	private float maxFuel = 60.0f;
+	public Text fuelText;
 	bool keysOn = true;
 
 
@@ -32,6 +35,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update () {
+		setFuelText ();
 		GetComponent<Rigidbody> ().freezeRotation = true;
 
 		if (timeRemaining > -1) {
@@ -55,16 +59,33 @@ public class PlayerController : MonoBehaviour {
 			GetComponent<Rigidbody> ().AddForce (movement * speed * Time.deltaTime);
 
 
-			/*
-			Rigidbody rigidbody = GetComponent<Rigidbody> ();
+
+			//Rigidbody rigidbody = GetComponent<Rigidbody> ();
 
 			
-			Vector3 movement = new Vector3(moveHorizontal,moveVertical,0.0f);
+			//Vector3 movement = new Vector3(moveHorizontal,moveVertical,0.0f);
 			
-			rigidbody.velocity = movement * speed;
-			*/
-		}
-		if (Input.GetKeyDown ("space"))
+			//rigidbody.velocity = movement * speed;
+
+		}/*
+		float L = 0.5f * Globals.AirDensity(transform.position.y, AltUnit.Meters) * GetComponent<Rigidbody>().velocity.magnitude * m_Planform * 2.0f * Mathf.PI * Vector3.Angle(transform.forward, Vector3.up);
+		float pitch = Input.GetAxis("pitch");
+		float roll = Input.GetAxis("roll");
+		float yaw = Input.GetAxis("yaw");
+		float finalRotFactor = m_RotSpeed * (Thrust / MaxThrust);
+			
+			
+		GetComponent<Rigidbody>().AddRelativeTorque(Vector3.right * pitch * finalRotFactor, ForceMode.Impulse);
+		GetComponent<Rigidbody>().AddRelativeTorque(Vector3.up * yaw * finalRotFactor, ForceMode.Impulse);
+		GetComponent<Rigidbody>().AddRelativeTorque(Vector3.forward * roll * finalRotFactor * 4, ForceMode.Impulse);
+			
+		GetComponent<Rigidbody>().AddForce(transform.forward * Thrust * 2, ForceMode.Impulse);
+		GetComponent<Rigidbody>().AddForce(Vector3.up * L, ForceMode.Force);
+			
+		m_Lift = L;
+		m_Velocity = GetComponent<Rigidbody>().velocity.magnitude;
+		*/
+		if(Input.GetKeyDown ("space"))
 		{
 			keyPressed = true;
 		}
@@ -117,8 +138,12 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (col.gameObject.name == "PlayerBase")
 		{
-			timeRemaining = 5f;
+			timeRemaining = 60f;
 		}
+	}
+	void setFuelText()
+	{
+		fuelText.text = "Fuel: " + Math.Round(timeRemaining/maxFuel*100,0) + "%";
 	}
 
 

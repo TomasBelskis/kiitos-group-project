@@ -4,6 +4,8 @@ using System.Collections;
 public class DestoryBoundary : MonoBehaviour {
 
 	void OnTriggerExit(Collider other) {
-		Destroy(other.gameObject); 
+		if (other.tag == "Bullet") {
+			Destroy (other.gameObject);
+		}
 	}
 }
