@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	public GameObject Player;
 	public GameObject PlayerBase;
+	private GameObject[] bullets;
+	private GameObject[] p_bullets;
 	public Vector3 pos;
 	private float timeRemaining = 60f;
 	private float maxFuel = 60.0f;
@@ -58,14 +60,9 @@ public class PlayerController : MonoBehaviour {
 			Vector3 movement = new Vector3 (moveHorizontal, moveVertical);
 			GetComponent<Rigidbody> ().AddForce (movement * speed * Time.deltaTime);
 
-
-
 			//Rigidbody rigidbody = GetComponent<Rigidbody> ();
-
 			
-			//Vector3 movement = new Vector3(moveHorizontal,moveVertical,0.0f);
-			
-			//rigidbody.velocity = movement * speed;
+			//rigidbody.velocity = movement * 500 * Time.deltaTime;//speed;
 
 		}/*
 		float L = 0.5f * Globals.AirDensity(transform.position.y, AltUnit.Meters) * GetComponent<Rigidbody>().velocity.magnitude * m_Planform * 2.0f * Mathf.PI * Vector3.Angle(transform.forward, Vector3.up);
@@ -105,9 +102,24 @@ public class PlayerController : MonoBehaviour {
 	
 	void Respawn()
 	{
+		bullets = GameObject.FindGameObjectsWithTag ("Bullet");
+		p_bullets = GameObject.FindGameObjectsWithTag ("Player_Bullet");
+
+		foreach (GameObject obj in bullets)
+		{
+			if(obj!=null)
+				Destroy (obj);
+		}
+		foreach (GameObject obj in p_bullets)
+		{
+			if(obj!=null)
+				Destroy (obj);
+		}
+
 		keysOn = true;
 		Player.transform.position = PlayerBase.transform.position + pos;
 		Player.transform.rotation = Quaternion.identity;
+
 	}
 
 	void OnCollisionEnter(Collision col)

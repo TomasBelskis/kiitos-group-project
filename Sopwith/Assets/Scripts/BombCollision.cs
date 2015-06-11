@@ -16,8 +16,19 @@ public class BombCollision : MonoBehaviour {
 	
 	}
 
-	void OnCollisionEnter()
+	void OnCollisionEnter(Collision collision)
 	{
-		Destroy (Bomb);
+		if (collision.gameObject.tag == "Enemy") {
+			Destroy (collision.gameObject);
+			Destroy (this.gameObject);
+		} 
+		if (collision.gameObject.name == "Terrain") {
+			
+			Destroy (this.gameObject);
+		} 
+		if (collision.gameObject.name == "PlayerBase") {
+			
+			Destroy (this.gameObject);
+		} 
 	}
 }
